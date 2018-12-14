@@ -29,5 +29,29 @@ function formUpdateUser() {
 }
 
 function updateUser() {
-  $update = updateeUser($_POST);
+  $update = updateeUser($_POST, $_GET);
+  header('Location: index.php');
+  exit;
+}
+
+function selectChoice() {
+  if (isset($_POST['id'])) {
+    listUsers();
+  }
+  if (isset($_POST['years'])) {
+    $users = selectYearsChoice();
+    require 'view/frontend/listUsersView.php';
+  }
+  if (isset($_POST['orderName'])) {
+    $users = selectOrderNameChoice();
+    require 'view/frontend/listUsersView.php';
+  }
+  if (isset($_POST['city'])) {
+    $users = selectCityChoice();
+    require 'view/frontend/listUsersView.php';
+  }
+  if (isset($_POST['availability'])) {
+    $users = selectAvailabilityChoice();
+    require 'view/frontend/listUsersView.php';
+  }
 }

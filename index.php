@@ -21,6 +21,9 @@ try {
     if ($_GET['action'] === 'updateUser') {
       updateUser();
     }
+    if ($_GET['action'] === 'selectChoice') {
+      selectChoice();
+    }
   }
   else {
     listUsers();
