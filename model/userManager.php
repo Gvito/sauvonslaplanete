@@ -51,20 +51,30 @@ function updateeUser($user, $url) {
   return $result;
 }
 
-function selectListChoice() {
-  if (isset($_POST["id"])) {
-    getUsers();
-  }
-  if (isset($_POST["years"])) {
-    
-  }
-  if (isset($_POST["orderName"])) {
+function selectYearsChoice() {
+  $db = dbConnect();
+  $req = $db->query('SELECT id_user, last_name, first_name, years, comments, availability, avenue, city FROM users ORDER BY years');
+  $result = $req->fetchAll(PDO::FETCH_ASSOC);
+  return $result;
+}
 
-  }
-  if (isset($_POST["city"])) {
+function selectOrderNameChoice() {
+  $db = dbConnect();
+  $req = $db->query('SELECT id_user, last_name, first_name, years, comments, availability, avenue, city FROM users ORDER BY last_name');
+  $result = $req->fetchAll(PDO::FETCH_ASSOC);
+  return $result;
+}
 
-  }
-  if (isset($_POST["availability"])) {
+function selectCityChoice() {
+  $db = dbConnect();
+  $req = $db->query('SELECT id_user, last_name, first_name, years, comments, availability, avenue, city FROM users ORDER BY city');
+  $result = $req->fetchAll(PDO::FETCH_ASSOC);
+  return $result;
+}
 
-  }
+function selectAvailabilityChoice() {
+  $db = dbConnect();
+  $req = $db->query('SELECT id_user, last_name, first_name, years, comments, availability, avenue, city FROM users ORDER BY availability DESC');
+  $result = $req->fetchAll(PDO::FETCH_ASSOC);
+  return $result;
 }

@@ -7,16 +7,25 @@ ob_start();
   <a href="index.php?action=formAddUser"><button type="button" class="btn btn-success mb-4">Ajouter un bénévole</button></a>
   <form method="post" action="index.php?action=selectChoice" class="d-flex justify-content-end mb-3">
     <div class="form-row align-items-center">
-      <div class="col-auto my-1">
-        <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
-        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-          <option selected>Trier par..</option>
-          <option value="1" name="id">ID</option>
-          <option value="2" name="years">Age</option>
-          <option value="3" name="orderName">Nom par ordre Alphabétique</option>
-          <option value="4" name="city">ville</option>
-          <option value="5" name="availability">Disponibilité</option>
-        </select>
+      <div class="form-check pr-2">
+        <input class="form-check-input" type="checkbox" name="id" id="exampleRadios1" value="option1">
+        <label class="form-check-label" for="exampleRadios1">ID</label>
+      </div>
+      <div class="form-check pr-2">
+        <input class="form-check-input" type="checkbox" name="years" id="exampleRadios2" value="option2">
+        <label class="form-check-label" for="exampleRadios2">Age</label>
+      </div>
+      <div class="form-check pr-2">
+        <input class="form-check-input" type="checkbox" name="orderName" id="exampleRadios3" value="option3">
+        <label class="form-check-label" for="exampleRadios3">Nom par Ordre Alphabétique</label>
+      </div>
+      <div class="form-check pr-2">
+        <input class="form-check-input" type="checkbox" name="city" id="exampleRadios4" value="option4">
+        <label class="form-check-label" for="exampleRadios4">Ville</label>
+      </div>
+      <div class="form-check pr-2">
+        <input class="form-check-input" type="checkbox" name="availability" id="exampleRadios5" value="option5">
+        <label class="form-check-label" for="exampleRadios5">Disponibilité</label>
       </div>
       <div class="col-auto my-1">
         <button type="submit" class="btn btn-primary">Trier</button>
@@ -32,7 +41,7 @@ ob_start();
         <th scope="col" class="text-center">Age</th>
         <th scope="col" class="text-center">Commentaire</th>
         <th scope="col" class="text-center">Disponibité</th>
-        <th scope="col" class="text-center">Adresse/Ville</th>
+        <th scope="col" class="text-center">Adresse / Ville</th>
         <th scope="col" class="text-center">Modification</th>
       </tr>
     </thead>
@@ -49,7 +58,7 @@ ob_start();
         <td class="text-center"> <?php echo $user['years']; ?></td>
         <td class="text-center"> <?php echo $user['comments']; ?></td>
         <td class="text-center"> <?php echo $user['availability']; ?></td>
-        <td class="text-center"> <?php echo $user['avenue'] . $user['city']; ?></td>
+        <td class="text-center"> <?php echo $user['avenue']; ?> / <?php echo $user['city']; ?></td>
         <td class="text-center">
           <!-- Button trigger modal -->
           <button type="button" class="btn btn-info" data-toggle="modal" data-target="#<?php echo $key; ?>">

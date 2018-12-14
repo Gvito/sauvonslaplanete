@@ -35,6 +35,23 @@ function updateUser() {
 }
 
 function selectChoice() {
-  $choice = selectListChoice();
-  require 'view/frontend/listUsersView.php';
+  if (isset($_POST['id'])) {
+    listUsers();
+  }
+  if (isset($_POST['years'])) {
+    $users = selectYearsChoice();
+    require 'view/frontend/listUsersView.php';
+  }
+  if (isset($_POST['orderName'])) {
+    $users = selectOrderNameChoice();
+    require 'view/frontend/listUsersView.php';
+  }
+  if (isset($_POST['city'])) {
+    $users = selectCityChoice();
+    require 'view/frontend/listUsersView.php';
+  }
+  if (isset($_POST['availability'])) {
+    $users = selectAvailabilityChoice();
+    require 'view/frontend/listUsersView.php';
+  }
 }
