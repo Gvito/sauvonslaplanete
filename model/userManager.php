@@ -34,18 +34,37 @@ function addsUser($user) {
   ]);
 }
 
-function updateeUser($user) {
+function updateeUser($user, $url) {
   $db = dbConnect();
-  $req = $db->prepare('UPDATE users SET last_name= :last_name, first_name= :first=name, years= :years, comments= :comments, availability= :avai, avenue= :avenue, city= :city WHERE id_user = :id_user');
+  $req = $db->prepare('UPDATE users SET last_name= :last_name, first_name= :first_name, years= :years, comments= :comments, availability= :availability, avenue= :avenue, city= :city WHERE id_user = :id_user');
   $result = $req->execute([
     "last_name" => $user["last_name"],
     "first_name" => $user["first_name"],
     "years" => $user["years"],
     "comments" => $user["comments"],
-    "availability" => $user["avai"],
+    "availability" => $user["availability"],
     "avenue" => $user["avenue"],
-    "city" => $user["city"]
+    "city" => $user["city"],
+    "id_user" => $url["id_user"]
   ]);
   $req->closeCursor();
   return $result;
+}
+
+function selectListChoice() {
+  if (isset($_POST["id"])) {
+    getUsers();
+  }
+  if (isset($_POST["years"])) {
+    
+  }
+  if (isset($_POST["orderName"])) {
+
+  }
+  if (isset($_POST["city"])) {
+
+  }
+  if (isset($_POST["availability"])) {
+
+  }
 }

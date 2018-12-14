@@ -5,17 +5,24 @@ ob_start();
 
 <div class="container">
   <a href="index.php?action=formAddUser"><button type="button" class="btn btn-success mb-4">Ajouter un bénévole</button></a>
-  <div class="btn-group d-flex flex-row mb-3 justify-content-end">
-    <button type="button" class="btn btn-secondary dropdown-toggle bg-primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Trier par :
-    </button>
-    <div class="dropdown-menu dropdown-menu-right">
-      <button class="dropdown-item" type="button">Age</button>
-      <button class="dropdown-item" type="button">Nom par ordre Alphabétique</button>
-      <button class="dropdown-item" type="button">ville</button>
-      <button class="dropdown-item" type="button">Disponibilité</button>
+  <form method="post" action="index.php?action=selectChoice" class="d-flex justify-content-end mb-3">
+    <div class="form-row align-items-center">
+      <div class="col-auto my-1">
+        <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
+        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+          <option selected>Trier par..</option>
+          <option value="1" name="id">ID</option>
+          <option value="2" name="years">Age</option>
+          <option value="3" name="orderName">Nom par ordre Alphabétique</option>
+          <option value="4" name="city">ville</option>
+          <option value="5" name="availability">Disponibilité</option>
+        </select>
+      </div>
+      <div class="col-auto my-1">
+        <button type="submit" class="btn btn-primary">Trier</button>
+      </div>
     </div>
-  </div>
+  </form>
   <table class="table mb-5">
     <thead>
       <tr class="bg-secondary">
@@ -79,11 +86,11 @@ ob_start();
                     <div class="form-group">
                       <label for="formGroupExampleInput">Disponibilité</label><br>
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Oui" name="avai">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Oui" name="availability">
                         <label class="form-check-label" for="inlineCheckbox1">Oui</label>
                       </div>
                       <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="Non" name="avai">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="Non" name="availability">
                         <label class="form-check-label" for="inlineCheckbox2">Non</label>
                       </div>
                     </div>

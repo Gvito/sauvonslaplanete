@@ -29,5 +29,12 @@ function formUpdateUser() {
 }
 
 function updateUser() {
-  $update = updateeUser($_POST);
+  $update = updateeUser($_POST, $_GET);
+  header('Location: index.php');
+  exit;
+}
+
+function selectChoice() {
+  $choice = selectListChoice();
+  require 'view/frontend/listUsersView.php';
 }
