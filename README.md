@@ -29,3 +29,5 @@ Un bénévole est composé des informations suivantes:
 - Disponibilité
 - Rue
 - Ville
+
+Réalisation en formation Simplon Roubaix.
